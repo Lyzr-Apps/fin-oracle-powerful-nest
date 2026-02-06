@@ -1,0 +1,165 @@
+{
+  "agent_name": "Pattern Auditor Agent",
+  "agent_id": "69858c95ab4bf65a66ad0820",
+  "agent_purpose": "pattern_detection",
+  "description": "Detects ghost subscriptions, recurring patterns, and spending anomalies",
+  "response_schema": {
+    "status": "string",
+    "result": {
+      "ghost_subscriptions": [
+        {
+          "merchant": "string",
+          "amount": "number",
+          "frequency": "string",
+          "last_charge_date": "string",
+          "total_charges": "number",
+          "annual_cost": "number"
+        }
+      ],
+      "merchant_clusters": [
+        {
+          "merchant": "string",
+          "transaction_count": "number",
+          "total_spent": "number",
+          "frequency": "string"
+        }
+      ],
+      "anomalies": [
+        {
+          "type": "string",
+          "merchant": "string",
+          "description": "string",
+          "amount": "number",
+          "date": "string"
+        }
+      ],
+      "recommendations": [
+        "string"
+      ]
+    },
+    "metadata": {
+      "agent_name": "string",
+      "timestamp": "string"
+    }
+  },
+  "example_response": {
+    "status": "success",
+    "result": {
+      "ghost_subscriptions": [
+        {
+          "merchant": "Netflix",
+          "amount": 299,
+          "frequency": "monthly",
+          "last_charge_date": "2024-03-15",
+          "total_charges": 3,
+          "annual_cost": 3588
+        },
+        {
+          "merchant": "Amazon Prime",
+          "amount": 179,
+          "frequency": "monthly",
+          "last_charge_date": "2024-03-XX",
+          "total_charges": 3,
+          "annual_cost": 2148
+        },
+        {
+          "merchant": "Spotify",
+          "amount": 119,
+          "frequency": "monthly",
+          "last_charge_date": "2024-03-XX",
+          "total_charges": 3,
+          "annual_cost": 1428
+        }
+      ],
+      "merchant_clusters": [
+        {
+          "merchant": "Swiggy",
+          "transaction_count": 8,
+          "total_spent": 3600,
+          "frequency": "High (8 times in Feb)"
+        }
+      ],
+      "anomalies": [
+        {
+          "type": "high_frequency",
+          "merchant": "Swiggy",
+          "description": "High number of food delivery orders in a single month",
+          "amount": 450,
+          "date": "2024-02-XX"
+        }
+      ],
+      "recommendations": [
+        "Review streaming subscriptions (Netflix, Amazon Prime, Spotify) to ensure all are still in active use; consider consolidating if underutilized.",
+        "Swiggy spending is significantly high; set a budget or explore meal prep/cooking to reduce frequency and cost.",
+        "Audit auto-renewals and cancel any subscriptions not needed to optimize monthly expenses.",
+        "Consider annual plans for subscriptions if you use them consistently\u2014these often provide cost savings over monthly billing."
+      ]
+    },
+    "metadata": {
+      "agent_name": "Pattern Auditor Agent",
+      "timestamp": "2024-06-14T11:34:00Z"
+    }
+  },
+  "is_actual_tested": true,
+  "test_timestamp": "2026-02-06T06:42:26.225154",
+  "test_message_used": "Hello, provide a sample response",
+  "actual_test_response": {
+    "status": "success",
+    "result": {
+      "ghost_subscriptions": [
+        {
+          "merchant": "Netflix",
+          "amount": 299,
+          "frequency": "monthly",
+          "last_charge_date": "2024-03-15",
+          "total_charges": 3,
+          "annual_cost": 3588
+        },
+        {
+          "merchant": "Amazon Prime",
+          "amount": 179,
+          "frequency": "monthly",
+          "last_charge_date": "2024-03-XX",
+          "total_charges": 3,
+          "annual_cost": 2148
+        },
+        {
+          "merchant": "Spotify",
+          "amount": 119,
+          "frequency": "monthly",
+          "last_charge_date": "2024-03-XX",
+          "total_charges": 3,
+          "annual_cost": 1428
+        }
+      ],
+      "merchant_clusters": [
+        {
+          "merchant": "Swiggy",
+          "transaction_count": 8,
+          "total_spent": 3600,
+          "frequency": "High (8 times in Feb)"
+        }
+      ],
+      "anomalies": [
+        {
+          "type": "high_frequency",
+          "merchant": "Swiggy",
+          "description": "High number of food delivery orders in a single month",
+          "amount": 450,
+          "date": "2024-02-XX"
+        }
+      ],
+      "recommendations": [
+        "Review streaming subscriptions (Netflix, Amazon Prime, Spotify) to ensure all are still in active use; consider consolidating if underutilized.",
+        "Swiggy spending is significantly high; set a budget or explore meal prep/cooking to reduce frequency and cost.",
+        "Audit auto-renewals and cancel any subscriptions not needed to optimize monthly expenses.",
+        "Consider annual plans for subscriptions if you use them consistently\u2014these often provide cost savings over monthly billing."
+      ]
+    },
+    "metadata": {
+      "agent_name": "Pattern Auditor Agent",
+      "timestamp": "2024-06-14T11:34:00Z"
+    }
+  },
+  "test_passed": true
+}

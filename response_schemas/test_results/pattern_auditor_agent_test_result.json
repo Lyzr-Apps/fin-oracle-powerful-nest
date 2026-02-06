@@ -1,0 +1,68 @@
+{
+  "agent_name": "Pattern Auditor Agent",
+  "agent_id": "69858c95ab4bf65a66ad0820",
+  "test_message": "Analyze patterns: Netflix Rs 299 on 15th every month (Jan-Mar), Swiggy orders 8 times in Feb averaging Rs 450, Amazon Prime Rs 179 charged monthly, Spotify Rs 119 monthly",
+  "expected_purpose": "Identify ghost subscriptions and spending patterns",
+  "timestamp": "2026-02-06T06:42:26.224356",
+  "is_valid_json": true,
+  "validation_errors": [],
+  "actual_response": {
+    "status": "success",
+    "result": {
+      "ghost_subscriptions": [
+        {
+          "merchant": "Netflix",
+          "amount": 299,
+          "frequency": "monthly",
+          "last_charge_date": "2024-03-15",
+          "total_charges": 3,
+          "annual_cost": 3588
+        },
+        {
+          "merchant": "Amazon Prime",
+          "amount": 179,
+          "frequency": "monthly",
+          "last_charge_date": "2024-03-XX",
+          "total_charges": 3,
+          "annual_cost": 2148
+        },
+        {
+          "merchant": "Spotify",
+          "amount": 119,
+          "frequency": "monthly",
+          "last_charge_date": "2024-03-XX",
+          "total_charges": 3,
+          "annual_cost": 1428
+        }
+      ],
+      "merchant_clusters": [
+        {
+          "merchant": "Swiggy",
+          "transaction_count": 8,
+          "total_spent": 3600,
+          "frequency": "High (8 times in Feb)"
+        }
+      ],
+      "anomalies": [
+        {
+          "type": "high_frequency",
+          "merchant": "Swiggy",
+          "description": "High number of food delivery orders in a single month",
+          "amount": 450,
+          "date": "2024-02-XX"
+        }
+      ],
+      "recommendations": [
+        "Review streaming subscriptions (Netflix, Amazon Prime, Spotify) to ensure all are still in active use; consider consolidating if underutilized.",
+        "Swiggy spending is significantly high; set a budget or explore meal prep/cooking to reduce frequency and cost.",
+        "Audit auto-renewals and cancel any subscriptions not needed to optimize monthly expenses.",
+        "Consider annual plans for subscriptions if you use them consistently\u2014these often provide cost savings over monthly billing."
+      ]
+    },
+    "metadata": {
+      "agent_name": "Pattern Auditor Agent",
+      "timestamp": "2024-06-14T11:34:00Z"
+    }
+  },
+  "raw_response": "{\n  \"status\": \"success\",\n  \"result\": {\n    \"ghost_subscriptions\": [\n      {\n        \"merchant\": \"Netflix\",\n        \"amount\": 299,\n        \"frequency\": \"monthly\",\n        \"last_charge_date\": \"2024-03-15\",\n        \"total_charges\": 3,\n        \"annual_cost\": 3588\n      },\n      {\n        \"merchant\": \"Amazon Prime\",\n        \"amount\": 179,\n        \"frequency\": \"monthly\",\n        \"last_charge_date\": \"2024-03-XX\",\n        \"total_charges\": 3,\n        \"annual_cost\": 2148\n      },\n      {\n        \"merchant\": \"Spotify\",\n        \"amount\": 119,\n        \"frequency\": \"monthly\",\n        \"last_charge_date\": \"2024-03-XX\",\n        \"total_charges\": 3,\n        \"annual_cost\": 1428\n      }\n    ],\n    \"merchant_clusters\": [\n      {\n        \"merchant\": \"Swiggy\",\n        \"transaction_count\": 8,\n        \"total_spent\": 3600,\n        \"frequency\": \"High (8 times in Feb)\"\n      }\n    ],\n    \"anomalies\": [\n      {\n        \"type\": \"high_frequency\",\n        \"merchant\": \"Swiggy\",\n        \"description\": \"High number of food delivery orders in a single month\",\n        \"amount\": 450,\n        \"date\": \"2024-02-XX\"\n      }\n    ],\n    \"recommendations\": [\n      \"Review streaming subscriptions (Netflix, Amazon Prime, Spotify) to ensure all are still in active use; consider consolidating if underutilized.\",\n      \"Swiggy spending is significantly high; set a budget or explore meal prep/cooking to reduce frequency and cost.\",\n      \"Audit auto-renewals and cancel any subscriptions not needed to optimize monthly expenses.\",\n      \"Consider annual plans for subscriptions if you use them consistently\u2014these often provide cost savings over monthly billing.\"\n    ]\n  },\n  \"metadata\": {\n    \"agent_name\": \"Pattern Auditor Agent\",\n    \"timestamp\": \"2024-06-14T11:34:00Z\"\n  }\n}"
+}

@@ -1,0 +1,67 @@
+{
+  "agent_name": "Taxonomist Agent",
+  "agent_id": "69858c80e17e33c11eed1a18",
+  "test_message": "Categorize these transactions: 1) Netflix Rs 299, 2) Electricity bill Rs 1500, 3) Swiggy Rs 450, 4) Mutual Fund SIP Rs 5000, 5) Uber Rs 250",
+  "expected_purpose": "Categorize transactions into Fixed/Lifestyle/Future",
+  "timestamp": "2026-02-06T06:42:20.957993",
+  "is_valid_json": true,
+  "validation_errors": [],
+  "actual_response": {
+    "status": "success",
+    "result": {
+      "categorized_transactions": [
+        {
+          "transaction_id": "1",
+          "merchant": "Netflix",
+          "amount": "299",
+          "category": "Fixed",
+          "subcategory": "Subscription - Streaming",
+          "confidence": "0.98"
+        },
+        {
+          "transaction_id": "2",
+          "merchant": "Electricity bill",
+          "amount": "1500",
+          "category": "Fixed",
+          "subcategory": "Utility - Electricity",
+          "confidence": "1.0"
+        },
+        {
+          "transaction_id": "3",
+          "merchant": "Swiggy",
+          "amount": "450",
+          "category": "Lifestyle",
+          "subcategory": "Dining - Food Delivery",
+          "confidence": "0.99"
+        },
+        {
+          "transaction_id": "4",
+          "merchant": "Mutual Fund SIP",
+          "amount": "5000",
+          "category": "Future",
+          "subcategory": "Investment - Mutual Fund",
+          "confidence": "1.0"
+        },
+        {
+          "transaction_id": "5",
+          "merchant": "Uber",
+          "amount": "250",
+          "category": "Lifestyle",
+          "subcategory": "Transport - Ride Hailing",
+          "confidence": "0.95"
+        }
+      ],
+      "category_totals": {
+        "fixed": "1799",
+        "lifestyle": "700",
+        "future": "5000"
+      },
+      "total_categorized": 5
+    },
+    "metadata": {
+      "agent_name": "Taxonomist Agent",
+      "timestamp": "2024-06-15T12:45:00Z"
+    }
+  },
+  "raw_response": "{\n  \"status\": \"success\",\n  \"result\": {\n    \"categorized_transactions\": [\n      {\n        \"transaction_id\": \"1\",\n        \"merchant\": \"Netflix\",\n        \"amount\": \"299\",\n        \"category\": \"Fixed\",\n        \"subcategory\": \"Subscription - Streaming\",\n        \"confidence\": \"0.98\"\n      },\n      {\n        \"transaction_id\": \"2\",\n        \"merchant\": \"Electricity bill\",\n        \"amount\": \"1500\",\n        \"category\": \"Fixed\",\n        \"subcategory\": \"Utility - Electricity\",\n        \"confidence\": \"1.0\"\n      },\n      {\n        \"transaction_id\": \"3\",\n        \"merchant\": \"Swiggy\",\n        \"amount\": \"450\",\n        \"category\": \"Lifestyle\",\n        \"subcategory\": \"Dining - Food Delivery\",\n        \"confidence\": \"0.99\"\n      },\n      {\n        \"transaction_id\": \"4\",\n        \"merchant\": \"Mutual Fund SIP\",\n        \"amount\": \"5000\",\n        \"category\": \"Future\",\n        \"subcategory\": \"Investment - Mutual Fund\",\n        \"confidence\": \"1.0\"\n      },\n      {\n        \"transaction_id\": \"5\",\n        \"merchant\": \"Uber\",\n        \"amount\": \"250\",\n        \"category\": \"Lifestyle\",\n        \"subcategory\": \"Transport - Ride Hailing\",\n        \"confidence\": \"0.95\"\n      }\n    ],\n    \"category_totals\": {\n      \"fixed\": \"1799\",\n      \"lifestyle\": \"700\",\n      \"future\": \"5000\"\n    },\n    \"total_categorized\": 5\n  },\n  \"metadata\": {\n    \"agent_name\": \"Taxonomist Agent\",\n    \"timestamp\": \"2024-06-15T12:45:00Z\"\n  }\n}"
+}

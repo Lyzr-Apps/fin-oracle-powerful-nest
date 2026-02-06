@@ -1,0 +1,29 @@
+{
+  "agent_name": "Data Surgeon Agent",
+  "agent_id": "69858c6fab4bf65a66ad081d",
+  "test_message": "Extract transaction details from: Payment of Rs 1,250.50 to Zomato on 15-Jan-2024 successful. Your OTP is 123456. Promotional: Get 50% off!",
+  "expected_purpose": "Extract clean transaction data from SMS",
+  "timestamp": "2026-02-06T06:42:17.565995",
+  "is_valid_json": true,
+  "validation_errors": [],
+  "actual_response": {
+    "status": "success",
+    "result": {
+      "transactions": [
+        {
+          "date": "2024-01-15",
+          "amount": "1250.50",
+          "merchant": "Zomato",
+          "transaction_type": "debit"
+        }
+      ],
+      "filtered_count": 2,
+      "extracted_count": 1
+    },
+    "metadata": {
+      "agent_name": "Data Surgeon Agent",
+      "timestamp": "2024-06-15T19:03:14Z"
+    }
+  },
+  "raw_response": "{\n  \"status\": \"success\",\n  \"result\": {\n    \"transactions\": [\n      {\n        \"date\": \"2024-01-15\",\n        \"amount\": \"1250.50\",\n        \"merchant\": \"Zomato\",\n        \"transaction_type\": \"debit\"\n      }\n    ],\n    \"filtered_count\": 2,\n    \"extracted_count\": 1\n  },\n  \"metadata\": {\n    \"agent_name\": \"Data Surgeon Agent\",\n    \"timestamp\": \"2024-06-15T19:03:14Z\"\n  }\n}"
+}

@@ -1,0 +1,52 @@
+{
+  "workflow_created": true,
+  "agents": {
+    "financial_audit_manager": {
+      "agent_id": "69858cabe17e33c11eed1a1d",
+      "name": "Financial Audit Manager",
+      "type": "manager",
+      "status": "created",
+      "managed_agents": [
+        "69858c6fab4bf65a66ad081d",
+        "69858c80e17e33c11eed1a18",
+        "69858c95ab4bf65a66ad0820"
+      ]
+    },
+    "data_surgeon_agent": {
+      "agent_id": "69858c6fab4bf65a66ad081d",
+      "name": "Data Surgeon Agent",
+      "type": "sub-agent",
+      "status": "created",
+      "manager": "69858cabe17e33c11eed1a1d"
+    },
+    "taxonomist_agent": {
+      "agent_id": "69858c80e17e33c11eed1a18",
+      "name": "Taxonomist Agent",
+      "type": "sub-agent",
+      "status": "created",
+      "manager": "69858cabe17e33c11eed1a1d"
+    },
+    "pattern_auditor_agent": {
+      "agent_id": "69858c95ab4bf65a66ad0820",
+      "name": "Pattern Auditor Agent",
+      "type": "sub-agent",
+      "status": "created",
+      "manager": "69858cabe17e33c11eed1a1d"
+    },
+    "query_expert_agent": {
+      "agent_id": "69858cc5a791e6e318b8def0",
+      "name": "Query Expert Agent",
+      "type": "independent",
+      "status": "created"
+    }
+  },
+  "response_schemas": {
+    "financial_audit_manager": "/app/nextjs-project/response_schemas/financial_audit_manager_response.json",
+    "data_surgeon_agent": "/app/nextjs-project/response_schemas/data_surgeon_agent_response.json",
+    "taxonomist_agent": "/app/nextjs-project/response_schemas/taxonomist_agent_response.json",
+    "pattern_auditor_agent": "/app/nextjs-project/response_schemas/pattern_auditor_agent_response.json",
+    "query_expert_agent": "/app/nextjs-project/response_schemas/query_expert_agent_response.json"
+  },
+  "created_at": "2026-02-06T00:00:00Z",
+  "last_updated": "2026-02-06T00:00:00Z"
+}

@@ -1,0 +1,129 @@
+{
+  "agent_name": "Financial Audit Manager",
+  "agent_id": "69858cabe17e33c11eed1a1d",
+  "agent_purpose": "financial_audit_orchestration",
+  "description": "Orchestrates financial audit workflow and generates executive reports",
+  "response_schema": {
+    "status": "string",
+    "result": {
+      "executive_summary": {
+        "total_transactions": "number",
+        "total_spending": "number",
+        "analysis_period": "string",
+        "financial_alignment_score": "number"
+      },
+      "spending_breakdown": {
+        "fixed": "number",
+        "lifestyle": "number",
+        "future": "number"
+      },
+      "key_insights": [
+        "string"
+      ],
+      "ghost_subscriptions_summary": {
+        "count": "number",
+        "annual_cost": "number"
+      },
+      "recommendations": [
+        "string"
+      ],
+      "sub_agent_reports": {
+        "data_extraction": "string",
+        "categorization": "string",
+        "pattern_detection": "string"
+      }
+    },
+    "metadata": {
+      "agent_name": "string",
+      "timestamp": "string"
+    }
+  },
+  "example_response": {
+    "status": "success",
+    "result": {
+      "executive_summary": {
+        "total_transactions": 5,
+        "total_spending": 2698.0,
+        "analysis_period": "2024-01-15 to 2024-03-10",
+        "financial_alignment_score": 47.0
+      },
+      "spending_breakdown": {
+        "fixed": 598.0,
+        "lifestyle": 2100.0,
+        "future": 0.0
+      },
+      "key_insights": [
+        "High recurring spend detected on Swiggy (food delivery) and Netflix (streaming subscription).",
+        "Netflix subscription is active and incurs an annual cost of \u20b93588.00.",
+        "No future (investment/savings) spends detected in the analysis period.",
+        "Swiggy spend indicates frequent food delivery orders and potential opportunity to optimize via consolidation.",
+        "Duplicate or repeat transactions found for both Swiggy and Netflix, matching expected recurrence patterns."
+      ],
+      "ghost_subscriptions_summary": {
+        "count": 1,
+        "annual_cost": 3588.0
+      },
+      "recommendations": [
+        "Review Netflix subscription for ongoing necessity given its recurring cost.",
+        "Consider reducing frequency of food delivery orders on Swiggy.",
+        "Increase allocations to future-oriented categories (investments, savings) to improve financial alignment.",
+        "Inspect duplicate transactions for possible overcharges, particularly with Swiggy orders."
+      ],
+      "sub_agent_reports": {
+        "data_extraction": "5 transactions were successfully extracted and structured from the SMS/CSV data.",
+        "categorization": "Transactions were categorized into 'fixed' (\u20b9598 - Netflix), 'lifestyle' (\u20b92100 - Swiggy and Amazon), and 'future' (\u20b90) based on merchant and spending type. Netflix was allocated as 'fixed' subscription; Swiggy and Amazon as 'lifestyle'.",
+        "pattern_detection": "No unusual anomalies outside expected spending recurrence. Detected 1 ghost subscription (Netflix) and duplicate transactions (Swiggy, Netflix) consistent with usage patterns. Recommendations focus on reviewing subscriptions, order consolidation, and prioritizing future savings."
+      }
+    },
+    "metadata": {
+      "agent_name": "Financial Audit Manager",
+      "timestamp": "2024-06-13T22:45:42Z"
+    }
+  },
+  "is_actual_tested": true,
+  "test_timestamp": "2026-02-06T06:42:01.683800",
+  "test_message_used": "Hello, provide a sample response",
+  "actual_test_response": {
+    "status": "success",
+    "result": {
+      "executive_summary": {
+        "total_transactions": 5,
+        "total_spending": 2698.0,
+        "analysis_period": "2024-01-15 to 2024-03-10",
+        "financial_alignment_score": 47.0
+      },
+      "spending_breakdown": {
+        "fixed": 598.0,
+        "lifestyle": 2100.0,
+        "future": 0.0
+      },
+      "key_insights": [
+        "High recurring spend detected on Swiggy (food delivery) and Netflix (streaming subscription).",
+        "Netflix subscription is active and incurs an annual cost of \u20b93588.00.",
+        "No future (investment/savings) spends detected in the analysis period.",
+        "Swiggy spend indicates frequent food delivery orders and potential opportunity to optimize via consolidation.",
+        "Duplicate or repeat transactions found for both Swiggy and Netflix, matching expected recurrence patterns."
+      ],
+      "ghost_subscriptions_summary": {
+        "count": 1,
+        "annual_cost": 3588.0
+      },
+      "recommendations": [
+        "Review Netflix subscription for ongoing necessity given its recurring cost.",
+        "Consider reducing frequency of food delivery orders on Swiggy.",
+        "Increase allocations to future-oriented categories (investments, savings) to improve financial alignment.",
+        "Inspect duplicate transactions for possible overcharges, particularly with Swiggy orders."
+      ],
+      "sub_agent_reports": {
+        "data_extraction": "5 transactions were successfully extracted and structured from the SMS/CSV data.",
+        "categorization": "Transactions were categorized into 'fixed' (\u20b9598 - Netflix), 'lifestyle' (\u20b92100 - Swiggy and Amazon), and 'future' (\u20b90) based on merchant and spending type. Netflix was allocated as 'fixed' subscription; Swiggy and Amazon as 'lifestyle'.",
+        "pattern_detection": "No unusual anomalies outside expected spending recurrence. Detected 1 ghost subscription (Netflix) and duplicate transactions (Swiggy, Netflix) consistent with usage patterns. Recommendations focus on reviewing subscriptions, order consolidation, and prioritizing future savings."
+      }
+    },
+    "metadata": {
+      "agent_name": "Financial Audit Manager",
+      "timestamp": "2024-06-13T22:45:42Z"
+    }
+  },
+  "test_passed": true
+}

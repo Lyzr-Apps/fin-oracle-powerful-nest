@@ -1,0 +1,67 @@
+{
+  "agent_name": "Data Surgeon Agent",
+  "agent_id": "69858c6fab4bf65a66ad081d",
+  "agent_purpose": "transaction_extraction",
+  "description": "Extracts and normalizes transaction data from SMS messages",
+  "response_schema": {
+    "status": "string",
+    "result": {
+      "transactions": [
+        {
+          "date": "string",
+          "amount": "string",
+          "merchant": "string",
+          "transaction_type": "string"
+        }
+      ],
+      "filtered_count": "number",
+      "extracted_count": "number"
+    },
+    "metadata": {
+      "agent_name": "string",
+      "timestamp": "string"
+    }
+  },
+  "example_response": {
+    "status": "success",
+    "result": {
+      "transactions": [
+        {
+          "date": "2024-01-15",
+          "amount": "1250.50",
+          "merchant": "Zomato",
+          "transaction_type": "debit"
+        }
+      ],
+      "filtered_count": 2,
+      "extracted_count": 1
+    },
+    "metadata": {
+      "agent_name": "Data Surgeon Agent",
+      "timestamp": "2024-06-15T19:03:14Z"
+    }
+  },
+  "is_actual_tested": true,
+  "test_timestamp": "2026-02-06T06:42:17.566572",
+  "test_message_used": "Hello, provide a sample response",
+  "actual_test_response": {
+    "status": "success",
+    "result": {
+      "transactions": [
+        {
+          "date": "2024-01-15",
+          "amount": "1250.50",
+          "merchant": "Zomato",
+          "transaction_type": "debit"
+        }
+      ],
+      "filtered_count": 2,
+      "extracted_count": 1
+    },
+    "metadata": {
+      "agent_name": "Data Surgeon Agent",
+      "timestamp": "2024-06-15T19:03:14Z"
+    }
+  },
+  "test_passed": true
+}

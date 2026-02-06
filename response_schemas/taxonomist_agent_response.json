@@ -1,0 +1,149 @@
+{
+  "agent_name": "Taxonomist Agent",
+  "agent_id": "69858c80e17e33c11eed1a18",
+  "agent_purpose": "transaction_categorization",
+  "description": "Categorizes transactions into Fixed, Lifestyle, and Future categories",
+  "response_schema": {
+    "status": "string",
+    "result": {
+      "categorized_transactions": [
+        {
+          "transaction_id": "string",
+          "merchant": "string",
+          "amount": "string",
+          "category": "string",
+          "subcategory": "string",
+          "confidence": "string"
+        }
+      ],
+      "category_totals": {
+        "fixed": "string",
+        "lifestyle": "string",
+        "future": "string"
+      },
+      "total_categorized": "number"
+    },
+    "metadata": {
+      "agent_name": "string",
+      "timestamp": "string"
+    }
+  },
+  "example_response": {
+    "status": "success",
+    "result": {
+      "categorized_transactions": [
+        {
+          "transaction_id": "1",
+          "merchant": "Netflix",
+          "amount": "299",
+          "category": "Fixed",
+          "subcategory": "Subscription - Streaming",
+          "confidence": "0.98"
+        },
+        {
+          "transaction_id": "2",
+          "merchant": "Electricity bill",
+          "amount": "1500",
+          "category": "Fixed",
+          "subcategory": "Utility - Electricity",
+          "confidence": "1.0"
+        },
+        {
+          "transaction_id": "3",
+          "merchant": "Swiggy",
+          "amount": "450",
+          "category": "Lifestyle",
+          "subcategory": "Dining - Food Delivery",
+          "confidence": "0.99"
+        },
+        {
+          "transaction_id": "4",
+          "merchant": "Mutual Fund SIP",
+          "amount": "5000",
+          "category": "Future",
+          "subcategory": "Investment - Mutual Fund",
+          "confidence": "1.0"
+        },
+        {
+          "transaction_id": "5",
+          "merchant": "Uber",
+          "amount": "250",
+          "category": "Lifestyle",
+          "subcategory": "Transport - Ride Hailing",
+          "confidence": "0.95"
+        }
+      ],
+      "category_totals": {
+        "fixed": "1799",
+        "lifestyle": "700",
+        "future": "5000"
+      },
+      "total_categorized": 5
+    },
+    "metadata": {
+      "agent_name": "Taxonomist Agent",
+      "timestamp": "2024-06-15T12:45:00Z"
+    }
+  },
+  "is_actual_tested": true,
+  "test_timestamp": "2026-02-06T06:42:20.958602",
+  "test_message_used": "Hello, provide a sample response",
+  "actual_test_response": {
+    "status": "success",
+    "result": {
+      "categorized_transactions": [
+        {
+          "transaction_id": "1",
+          "merchant": "Netflix",
+          "amount": "299",
+          "category": "Fixed",
+          "subcategory": "Subscription - Streaming",
+          "confidence": "0.98"
+        },
+        {
+          "transaction_id": "2",
+          "merchant": "Electricity bill",
+          "amount": "1500",
+          "category": "Fixed",
+          "subcategory": "Utility - Electricity",
+          "confidence": "1.0"
+        },
+        {
+          "transaction_id": "3",
+          "merchant": "Swiggy",
+          "amount": "450",
+          "category": "Lifestyle",
+          "subcategory": "Dining - Food Delivery",
+          "confidence": "0.99"
+        },
+        {
+          "transaction_id": "4",
+          "merchant": "Mutual Fund SIP",
+          "amount": "5000",
+          "category": "Future",
+          "subcategory": "Investment - Mutual Fund",
+          "confidence": "1.0"
+        },
+        {
+          "transaction_id": "5",
+          "merchant": "Uber",
+          "amount": "250",
+          "category": "Lifestyle",
+          "subcategory": "Transport - Ride Hailing",
+          "confidence": "0.95"
+        }
+      ],
+      "category_totals": {
+        "fixed": "1799",
+        "lifestyle": "700",
+        "future": "5000"
+      },
+      "total_categorized": 5
+    },
+    "metadata": {
+      "agent_name": "Taxonomist Agent",
+      "timestamp": "2024-06-15T12:45:00Z"
+    }
+  },
+  "test_passed": true
+}

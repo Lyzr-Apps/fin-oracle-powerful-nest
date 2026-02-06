@@ -1,0 +1,90 @@
+{
+  "agent_name": "Query Expert Agent",
+  "agent_id": "69858cc5a791e6e318b8def0",
+  "agent_purpose": "financial_query_analysis",
+  "description": "Answers natural language financial queries with calculations and insights",
+  "response_schema": {
+    "status": "string",
+    "result": {
+      "query": "string",
+      "answer": "string",
+      "calculation_details": {
+        "method": "string",
+        "values": {
+          "Jan 15": "number",
+          "Jan 22": "number",
+          "Feb 5": "number",
+          "Feb 18": "number",
+          "Mar 3": "number",
+          "total": "number"
+        }
+      },
+      "context": "string",
+      "recommendations": [
+        "string"
+      ]
+    },
+    "metadata": {
+      "agent_name": "string",
+      "timestamp": "string"
+    }
+  },
+  "example_response": {
+    "status": "success",
+    "result": {
+      "query": "Based on my transaction history showing Swiggy: Rs 450 (Jan 15), Rs 380 (Jan 22), Rs 520 (Feb 5), Rs 410 (Feb 18), Rs 490 (Mar 3), how much did I spend on Swiggy in the last 3 months?",
+      "answer": "In the last 3 months, you spent Rs 1,420 on Swiggy.",
+      "calculation_details": {
+        "method": "Summed all Swiggy transactions dated within the last 3 months from Mar 3 (i.e., from Dec 3 to Mar 3). Used transactions from Jan 15 (Rs 450), Jan 22 (Rs 380), Feb 5 (Rs 520), and Feb 18 (Rs 410), and Mar 3 (Rs 490).",
+        "values": {
+          "Jan 15": 450,
+          "Jan 22": 380,
+          "Feb 5": 520,
+          "Feb 18": 410,
+          "Mar 3": 490,
+          "total": 450
+        }
+      },
+      "context": "All Swiggy transactions in your provided list are dated within the last 3 months, so all are included in the total.",
+      "recommendations": [
+        "Consider reviewing your food delivery spending patterns to identify opportunities to reduce costs if desired.",
+        "Set a monthly budget for food delivery to manage future expenses more effectively."
+      ]
+    },
+    "metadata": {
+      "agent_name": "Query Expert Agent",
+      "timestamp": "2024-03-03T12:00:00Z"
+    }
+  },
+  "is_actual_tested": true,
+  "test_timestamp": "2026-02-06T06:42:30.965608",
+  "test_message_used": "Hello, provide a sample response",
+  "actual_test_response": {
+    "status": "success",
+    "result": {
+      "query": "Based on my transaction history showing Swiggy: Rs 450 (Jan 15), Rs 380 (Jan 22), Rs 520 (Feb 5), Rs 410 (Feb 18), Rs 490 (Mar 3), how much did I spend on Swiggy in the last 3 months?",
+      "answer": "In the last 3 months, you spent Rs 1,420 on Swiggy.",
+      "calculation_details": {
+        "method": "Summed all Swiggy transactions dated within the last 3 months from Mar 3 (i.e., from Dec 3 to Mar 3). Used transactions from Jan 15 (Rs 450), Jan 22 (Rs 380), Feb 5 (Rs 520), and Feb 18 (Rs 410), and Mar 3 (Rs 490).",
+        "values": {
+          "Jan 15": 450,
+          "Jan 22": 380,
+          "Feb 5": 520,
+          "Feb 18": 410,
+          "Mar 3": 490,
+          "total": 450
+        }
+      },
+      "context": "All Swiggy transactions in your provided list are dated within the last 3 months, so all are included in the total.",
+      "recommendations": [
+        "Consider reviewing your food delivery spending patterns to identify opportunities to reduce costs if desired.",
+        "Set a monthly budget for food delivery to manage future expenses more effectively."
+      ]
+    },
+    "metadata": {
+      "agent_name": "Query Expert Agent",
+      "timestamp": "2024-03-03T12:00:00Z"
+    }
+  },
+  "test_passed": true
+}
