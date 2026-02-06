@@ -1,0 +1,95 @@
+{
+  "agent_name": "Master Orchestrator Agent",
+  "agent_id": "6985916de5d25ce3f598cb4b",
+  "agent_purpose": "Orchestrate comprehensive analysis by delegating to specialized agents",
+  "description": "Test response for Master Orchestrator Agent - Successfully delegates to sub-agents and synthesizes results",
+  "response_schema": {
+    "status": "string",
+    "result": {
+      "query_analysis": {
+        "user_question": "string",
+        "query_type": "string",
+        "agents_consulted": [
+          "string"
+        ]
+      },
+      "insights": {
+        "market_context": "string",
+        "calculations": "string",
+        "data_analysis": "string"
+      },
+      "synthesis": {
+        "explanation": "string",
+        "recommendations": [
+          "string"
+        ],
+        "confidence": "string"
+      }
+    },
+    "metadata": {
+      "agent_name": "string",
+      "timestamp": "string"
+    }
+  },
+  "example_response": {
+    "status": "success",
+    "result": {
+      "query_analysis": {
+        "user_question": "Why is my travel spend so high this month?",
+        "query_type": "spending_analysis",
+        "agents_consulted": [
+          "News Sentinel"
+        ]
+      },
+      "insights": {
+        "market_context": "There have been recent fuel price hikes due to geopolitical tensions, which could contribute to higher transportation costs.",
+        "calculations": "",
+        "data_analysis": "CSV data shows an increase in fuel-related expenses, correlating with dates of price hikes."
+      },
+      "synthesis": {
+        "explanation": "Your travel expenses have increased primarily due to a rise in fuel prices.",
+        "recommendations": [
+          "Consider carpooling or using public transportation to reduce costs.",
+          "Monitor fuel prices and plan travel during off-peak times."
+        ],
+        "confidence": "high"
+      }
+    },
+    "metadata": {
+      "agent_name": "Master Orchestrator Agent",
+      "timestamp": "2023-10-12T15:26:43Z"
+    }
+  },
+  "is_actual_tested": true,
+  "test_timestamp": "2026-02-06T07:03:38.885267",
+  "test_message_used": "Hello, provide a sample response",
+  "actual_test_response": {
+    "status": "success",
+    "result": {
+      "query_analysis": {
+        "user_question": "Why is my travel spend so high this month?",
+        "query_type": "spending_analysis",
+        "agents_consulted": [
+          "News Sentinel"
+        ]
+      },
+      "insights": {
+        "market_context": "There have been recent fuel price hikes due to geopolitical tensions, which could contribute to higher transportation costs.",
+        "calculations": "",
+        "data_analysis": "CSV data shows an increase in fuel-related expenses, correlating with dates of price hikes."
+      },
+      "synthesis": {
+        "explanation": "Your travel expenses have increased primarily due to a rise in fuel prices.",
+        "recommendations": [
+          "Consider carpooling or using public transportation to reduce costs.",
+          "Monitor fuel prices and plan travel during off-peak times."
+        ],
+        "confidence": "high"
+      }
+    },
+    "metadata": {
+      "agent_name": "Master Orchestrator Agent",
+      "timestamp": "2023-10-12T15:26:43Z"
+    }
+  }
+}

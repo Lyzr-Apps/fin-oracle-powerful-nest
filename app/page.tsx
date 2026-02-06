@@ -15,13 +15,24 @@ import {
   Target,
   Send,
   FileText,
-  RefreshCw,
   Download,
   Trash2,
-  CheckCircle
+  CheckCircle,
+  Newspaper,
+  Calculator,
+  Database,
+  Clock,
+  TrendingDown,
+  Info,
+  ChevronDown,
+  ChevronUp
 } from 'lucide-react'
 
-// TypeScript interfaces from test responses
+// ============================================================================
+// TYPESCRIPT INTERFACES FROM TEST RESPONSES
+// ============================================================================
+
+// Financial Audit Manager Response (Dashboard)
 interface ExecutiveSummary {
   total_transactions: number
   total_spending: number
@@ -63,24 +74,237 @@ interface FinancialAuditResult {
   ghost_subscriptions?: GhostSubscription[]
 }
 
+// News Sentinel Agent Response
+interface NewsItem {
+  headline: string
+  source: string
+  relevance: string
+  date: string
+}
+
+interface NewsSentinelResult {
+  query_analyzed: string
+  search_performed: string
+  news_found: boolean
+  news_items: NewsItem[]
+  context_summary: string
+  confidence: 'high' | 'medium' | 'low'
+}
+
+// Actuary Agent Response
+interface CalculationStep {
+  step: string
+  formula: string
+  result: string
+}
+
+interface ActuaryResult {
+  calculation_type: string
+  input_data: {
+    description: string
+  }
+  calculations: CalculationStep[]
+  final_result: {
+    value: string
+    unit: string
+    interpretation: string
+  }
+  projections?: {
+    next_month?: string
+    next_quarter?: string
+    confidence_interval?: string
+  }
+}
+
+// Master Orchestrator Agent Response
+interface OrchestratorResult {
+  query_analysis: {
+    user_question: string
+    query_type: string
+    agents_consulted: string[]
+  }
+  insights: {
+    market_context?: string
+    calculations?: string
+    data_analysis?: string
+  }
+  synthesis: {
+    explanation: string
+    recommendations: string[]
+    confidence: 'high' | 'medium' | 'low'
+  }
+}
+
 interface ChatMessage {
   role: 'user' | 'assistant'
   content: string
   timestamp: Date
+  orchestratorData?: OrchestratorResult
+  newsData?: NewsSentinelResult
+  actuaryData?: ActuaryResult
 }
+
+// ============================================================================
+// AGENT IDS
+// ============================================================================
 
 const AGENT_IDS = {
   FINANCIAL_AUDIT_MANAGER: '69858cabe17e33c11eed1a1d',
-  QUERY_EXPERT: '69858cc5a791e6e318b8def0'
+  MASTER_ORCHESTRATOR: '6985916de5d25ce3f598cb4b',
+  NEWS_SENTINEL: '6985913de17e33c11eed1a61',
+  ACTUARY: '69859153e17e33c11eed1a66'
 }
 
+// ============================================================================
+// QUICK QUERY CHIPS (ENHANCED)
+// ============================================================================
+
 const QUICK_QUERIES = [
-  "How much did I spend on food delivery this month?",
-  "Show my subscription expenses",
-  "Can I afford a ₹5000 purchase?",
-  "What's my biggest spending category?",
-  "List all recurring charges"
+  "Why did my electricity bill spike?",
+  "Can I afford a ₹15,000 purchase?",
+  "Show fuel price trends affecting my travel budget",
+  "What's my 3-month spending projection?",
+  "Any market news affecting my subscriptions?"
 ]
+
+// ============================================================================
+// INLINE COMPONENTS
+// ============================================================================
+
+// Agent Badge Component
+const AgentBadge = ({ agents }: { agents: string[] }) => {
+  const getAgentIcon = (agent: string) => {
+    const agentLower = agent.toLowerCase()
+    if (agentLower.includes('news') || agentLower.includes('sentinel')) {
+      return <Newspaper className="h-3 w-3" />
+    }
+    if (agentLower.includes('actuary') || agentLower.includes('calculation')) {
+      return <Calculator className="h-3 w-3" />
+    }
+    if (agentLower.includes('data')) {
+      return <Database className="h-3 w-3" />
+    }
+    return <Info className="h-3 w-3" />
+  }
+
+  return (
+    <div className="flex flex-wrap gap-1 mb-2">
+      {agents.map((agent, idx) => (
+        <div
+          key={idx}
+          className="inline-flex items-center gap-1 bg-[#1a1f36] border border-[#00d4aa] rounded-full px-2 py-0.5 text-xs text-[#00d4aa]"
+        >
+          {getAgentIcon(agent)}
+          <span>{agent}</span>
+        </div>
+      ))}
+    </div>
+  )
+}
+
+// News Insight Card Component
+const NewsInsightCard = ({ newsItem }: { newsItem: NewsItem }) => {
+  return (
+    <div className="bg-[#1a1f36] border border-amber-500/30 rounded-lg p-3 space-y-2">
+      <div className="flex items-start justify-between gap-2">
+        <div className="flex-1">
+          <div className="flex items-center gap-2 mb-1">
+            <Newspaper className="h-4 w-4 text-amber-500" />
+            <span className="text-xs text-amber-500 font-medium">{newsItem.source}</span>
+          </div>
+          <h4 className="text-sm font-medium text-white mb-1">{newsItem.headline}</h4>
+          <p className="text-xs text-gray-400">{newsItem.relevance}</p>
+        </div>
+      </div>
+      <div className="flex items-center gap-2 text-xs text-gray-500">
+        <Clock className="h-3 w-3" />
+        <span>{new Date(newsItem.date).toLocaleDateString()}</span>
+      </div>
+    </div>
+  )
+}
+
+// Calculation Breakdown Component
+const CalculationBreakdown = ({ calculations }: { calculations: CalculationStep[] }) => {
+  const [isExpanded, setIsExpanded] = useState(false)
+
+  return (
+    <div className="bg-[#1a1f36] border border-green-500/30 rounded-lg p-3">
+      <button
+        onClick={() => setIsExpanded(!isExpanded)}
+        className="flex items-center justify-between w-full text-left"
+      >
+        <div className="flex items-center gap-2">
+          <Calculator className="h-4 w-4 text-green-500" />
+          <span className="text-sm font-medium text-white">Calculation Details</span>
+        </div>
+        {isExpanded ? (
+          <ChevronUp className="h-4 w-4 text-gray-400" />
+        ) : (
+          <ChevronDown className="h-4 w-4 text-gray-400" />
+        )}
+      </button>
+
+      {isExpanded && (
+        <div className="mt-3 space-y-2">
+          {calculations.map((calc, idx) => (
+            <div key={idx} className="border-l-2 border-green-500 pl-3 py-1">
+              <p className="text-xs font-medium text-green-400">{calc.step}</p>
+              <p className="text-xs text-gray-400 font-mono mt-0.5">{calc.formula}</p>
+              <p className="text-xs text-white mt-0.5">= {calc.result}</p>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  )
+}
+
+// Market Context Timeline Component
+const MarketContextTimeline = ({ news }: { news: NewsSentinelResult }) => {
+  if (!news.news_found || news.news_items.length === 0) {
+    return (
+      <Card className="bg-[#2a2f46] border-gray-700">
+        <CardContent className="py-4">
+          <div className="flex items-center gap-2 text-gray-400">
+            <Info className="h-5 w-5" />
+            <span className="text-sm">No market news found for this period</span>
+          </div>
+        </CardContent>
+      </Card>
+    )
+  }
+
+  return (
+    <Card className="bg-[#2a2f46] border-amber-500/30">
+      <CardHeader>
+        <CardTitle className="text-white flex items-center gap-2">
+          <Newspaper className="h-5 w-5 text-amber-500" />
+          Market Context
+        </CardTitle>
+      </CardHeader>
+      <CardContent className="space-y-3">
+        <div className="bg-amber-500/10 border border-amber-500/30 rounded-lg p-3">
+          <p className="text-sm text-amber-100">{news.context_summary}</p>
+          <div className="flex items-center gap-2 mt-2">
+            <span className="text-xs text-amber-400">Search: {news.search_performed}</span>
+            <span className="text-xs text-amber-400">•</span>
+            <span className="text-xs text-amber-400">Confidence: {news.confidence}</span>
+          </div>
+        </div>
+        <div className="space-y-2">
+          {news.news_items.map((item, idx) => (
+            <NewsInsightCard key={idx} newsItem={item} />
+          ))}
+        </div>
+      </CardContent>
+    </Card>
+  )
+}
+
+// ============================================================================
+// MAIN COMPONENT
+// ============================================================================
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState<'dashboard' | 'chat'>('dashboard')
@@ -93,6 +317,7 @@ export default function Home() {
   const [auditResult, setAuditResult] = useState<FinancialAuditResult | null>(null)
   const [uploadDate, setUploadDate] = useState<Date | null>(null)
   const [error, setError] = useState<string | null>(null)
+  const [marketNews, setMarketNews] = useState<NewsSentinelResult | null>(null)
 
   // Chat state
   const [chatMessages, setChatMessages] = useState<ChatMessage[]>([])
@@ -191,6 +416,9 @@ export default function Home() {
       if (result.success && result.response.status === 'success') {
         setAuditResult(result.response.result as FinancialAuditResult)
         setUploadDate(new Date())
+
+        // Fetch market context news for spending categories
+        fetchMarketContext()
       } else {
         throw new Error(result.error || 'Analysis failed')
       }
@@ -201,12 +429,26 @@ export default function Home() {
     }
   }
 
+  const fetchMarketContext = async () => {
+    try {
+      const newsQuery = "Check for recent market news affecting household expenses, subscriptions, and utility bills in India"
+      const newsResult = await callAIAgent(newsQuery, AGENT_IDS.NEWS_SENTINEL)
+
+      if (newsResult.success && newsResult.response.status === 'success') {
+        setMarketNews(newsResult.response.result as NewsSentinelResult)
+      }
+    } catch (err) {
+      console.error('Failed to fetch market context:', err)
+    }
+  }
+
   const handleClearData = () => {
     setFile(null)
     setGoalChips([])
     setAuditResult(null)
     setUploadDate(null)
     setError(null)
+    setMarketNews(null)
     setChatMessages([])
     if (fileInputRef.current) {
       fileInputRef.current.value = ''
@@ -248,15 +490,30 @@ export default function Home() {
         contextMessage = `Based on my transaction history:\n${csvContent}\n\nQuery: ${messageToSend}`
       }
 
-      const result = await callAIAgent(contextMessage, AGENT_IDS.QUERY_EXPERT)
+      // Call Master Orchestrator Agent
+      const result = await callAIAgent(contextMessage, AGENT_IDS.MASTER_ORCHESTRATOR)
 
       if (result.success && result.response.status === 'success') {
-        const queryResult = result.response.result as any
+        const orchestratorResult = result.response.result as OrchestratorResult
+
+        // Build comprehensive response
+        let responseContent = orchestratorResult.synthesis.explanation
+
+        // Add recommendations if available
+        if (orchestratorResult.synthesis.recommendations.length > 0) {
+          responseContent += '\n\nRecommendations:\n'
+          orchestratorResult.synthesis.recommendations.forEach((rec, idx) => {
+            responseContent += `${idx + 1}. ${rec}\n`
+          })
+        }
+
         const assistantMessage: ChatMessage = {
           role: 'assistant',
-          content: queryResult.answer || JSON.stringify(queryResult, null, 2),
-          timestamp: new Date()
+          content: responseContent,
+          timestamp: new Date(),
+          orchestratorData: orchestratorResult
         }
+
         setChatMessages(prev => [...prev, assistantMessage])
       } else {
         throw new Error(result.error || 'Query failed')
@@ -282,8 +539,8 @@ export default function Home() {
       <div className="container mx-auto py-8 px-4 max-w-7xl">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-[#00d4aa] mb-2">FinOracle</h1>
-          <p className="text-gray-400">AI-Powered Financial Intelligence Platform</p>
+          <h1 className="text-4xl font-bold text-[#00d4aa] mb-2">SpendSense AI</h1>
+          <p className="text-gray-400">AI-Powered Financial Intelligence with Real-Time Market Context</p>
         </div>
 
         {/* Tabs */}
@@ -441,6 +698,11 @@ export default function Home() {
             {/* Results Section */}
             {auditResult ? (
               <div className="space-y-6">
+                {/* Market Context Section */}
+                {marketNews && (
+                  <MarketContextTimeline news={marketNews} />
+                )}
+
                 {/* Executive Summary Cards */}
                 <div className="grid md:grid-cols-4 gap-4">
                   <Card className="bg-[#2a2f46] border-gray-700">
@@ -705,6 +967,8 @@ export default function Home() {
                   <div className="flex items-center gap-2 text-sm text-gray-400">
                     <CheckCircle className="h-4 w-4 text-[#00d4aa]" />
                     <span>Analyzing data from {uploadDate.toLocaleDateString()}</span>
+                    <span className="text-gray-600">•</span>
+                    <span>Powered by Master Orchestrator with News + Math agents</span>
                   </div>
                 </CardContent>
               </Card>
@@ -736,6 +1000,7 @@ export default function Home() {
                       <Send className="h-16 w-16 mx-auto mb-4 opacity-50" />
                       <p className="text-xl mb-2">Start a Conversation</p>
                       <p className="text-sm">Ask me anything about your finances!</p>
+                      <p className="text-xs mt-2 text-gray-500">Powered by Master Orchestrator, News Sentinel, and Actuary agents</p>
                     </div>
                   ) : (
                     chatMessages.map((msg, idx) => (
@@ -750,9 +1015,15 @@ export default function Home() {
                               : 'bg-[#1a1f36] text-gray-300 border border-gray-700'
                           }`}
                         >
+                          {msg.role === 'assistant' && msg.orchestratorData && (
+                            <AgentBadge agents={msg.orchestratorData.query_analysis.agents_consulted} />
+                          )}
                           <p className="whitespace-pre-wrap">{msg.content}</p>
                           <p className={`text-xs mt-2 ${msg.role === 'user' ? 'text-[#1a1f36]/70' : 'text-gray-500'}`}>
                             {msg.timestamp.toLocaleTimeString()}
+                            {msg.role === 'assistant' && msg.orchestratorData && (
+                              <span className="ml-2">• Confidence: {msg.orchestratorData.synthesis.confidence}</span>
+                            )}
                           </p>
                         </div>
                       </div>
@@ -761,7 +1032,10 @@ export default function Home() {
                   {isChatLoading && (
                     <div className="flex justify-start">
                       <div className="bg-[#1a1f36] text-gray-300 border border-gray-700 rounded-lg p-4">
-                        <Loader2 className="h-5 w-5 animate-spin" />
+                        <div className="flex items-center gap-2">
+                          <Loader2 className="h-5 w-5 animate-spin text-[#00d4aa]" />
+                          <span className="text-sm text-gray-400">Consulting agents...</span>
+                        </div>
                       </div>
                     </div>
                   )}
@@ -778,7 +1052,7 @@ export default function Home() {
                     value={chatInput}
                     onChange={(e) => setChatInput(e.target.value)}
                     onKeyPress={(e) => e.key === 'Enter' && !e.shiftKey && handleSendMessage()}
-                    placeholder="Ask about your spending, subscriptions, or financial goals..."
+                    placeholder="Ask about your spending, market news, or financial calculations..."
                     disabled={isChatLoading}
                     className="bg-[#1a1f36] border-gray-600 text-white placeholder:text-gray-500"
                   />

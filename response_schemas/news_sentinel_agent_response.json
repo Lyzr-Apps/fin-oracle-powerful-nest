@@ -1,0 +1,76 @@
+{
+  "agent_name": "News Sentinel Agent",
+  "agent_id": "6985913de17e33c11eed1a61",
+  "agent_purpose": "Fetch real-time market news and economic context to explain spending patterns",
+  "description": "Test response for News Sentinel Agent - FAILED to use MCP tool autonomously",
+  "response_schema": {
+    "status": "string",
+    "result": {
+      "query_analyzed": "string",
+      "search_performed": "string",
+      "news_found": "boolean",
+      "news_items": [
+        {
+          "headline": "string",
+          "source": "string",
+          "relevance": "string",
+          "date": "string"
+        }
+      ],
+      "context_summary": "string",
+      "confidence": "string"
+    },
+    "metadata": {
+      "agent_name": "string",
+      "timestamp": "string"
+    }
+  },
+  "example_response": {
+    "status": "success",
+    "result": {
+      "query_analyzed": "User's question about electricity tariff changes or price hikes in Mumbai.",
+      "search_performed": "Mumbai electricity tariff hike October 2023",
+      "news_found": true,
+      "news_items": [
+        {
+          "headline": "Mumbai Electricity Tariff Hike Announced for October",
+          "source": "The Economic Times",
+          "relevance": "Details an increase in electricity tariffs in Mumbai, explaining the rise in bills.",
+          "date": "2023-10-05"
+        }
+      ],
+      "context_summary": "The increase in your electricity bill aligns with the recent tariff hike announced in Mumbai, which was implemented in October 2023. This change directly impacts household expenses, resulting in higher bills like yours.",
+      "confidence": "high"
+    },
+    "metadata": {
+      "agent_name": "News Sentinel Agent",
+      "timestamp": "2023-10-15T12:00:00Z"
+    }
+  },
+  "is_actual_tested": true,
+  "test_timestamp": "2026-02-06T07:05:41.247985",
+  "test_message_used": "Hello, provide a sample response",
+  "actual_test_response": {
+    "status": "success",
+    "result": {
+      "query_analyzed": "User's question about electricity tariff changes or price hikes in Mumbai.",
+      "search_performed": "Mumbai electricity tariff hike October 2023",
+      "news_found": true,
+      "news_items": [
+        {
+          "headline": "Mumbai Electricity Tariff Hike Announced for October",
+          "source": "The Economic Times",
+          "relevance": "Details an increase in electricity tariffs in Mumbai, explaining the rise in bills.",
+          "date": "2023-10-05"
+        }
+      ],
+      "context_summary": "The increase in your electricity bill aligns with the recent tariff hike announced in Mumbai, which was implemented in October 2023. This change directly impacts household expenses, resulting in higher bills like yours.",
+      "confidence": "high"
+    },
+    "metadata": {
+      "agent_name": "News Sentinel Agent",
+      "timestamp": "2023-10-15T12:00:00Z"
+    }
+  },
+  "test_passed": true
+}

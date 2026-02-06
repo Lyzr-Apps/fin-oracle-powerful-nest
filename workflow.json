@@ -1,0 +1,132 @@
+{
+  "workflow_name": "Financial Analysis Platform - Sovereign Agent Squad",
+  "version": "2.0",
+  "description": "Enhanced agent architecture with real-time market context, combining CSV analysis with news intelligence and predictive math",
+  "nodes": [
+    {
+      "id": "input_node",
+      "type": "Input",
+      "label": "User Query",
+      "nodeCategory": "input"
+    },
+    {
+      "id": "master_orchestrator",
+      "type": "Agent",
+      "label": "Master Orchestrator",
+      "nodeCategory": "agent",
+      "agent_id": "6985916de5d25ce3f598cb4b",
+      "description": "The Brain - orchestrates all financial analysis queries"
+    },
+    {
+      "id": "news_sentinel",
+      "type": "Agent",
+      "label": "News Sentinel",
+      "nodeCategory": "agent",
+      "agent_id": "6985913de17e33c11eed1a61",
+      "description": "Fetches real-time market trends and news via MCP Tavily Search"
+    },
+    {
+      "id": "actuary_agent",
+      "type": "Agent",
+      "label": "Actuary Agent",
+      "nodeCategory": "agent",
+      "agent_id": "69859153e17e33c11eed1a66",
+      "description": "Performs precise financial calculations and projections"
+    },
+    {
+      "id": "financial_audit_manager",
+      "type": "Agent",
+      "label": "Financial Audit Manager",
+      "nodeCategory": "agent",
+      "agent_id": "69858cabe17e33c11eed1a1d",
+      "description": "CSV analysis manager (triggered by Analyze button)"
+    },
+    {
+      "id": "output_node",
+      "type": "Output",
+      "label": "Financial Analysis Response",
+      "nodeCategory": "end"
+    }
+  ],
+  "edges": [
+    {
+      "source": "input_node",
+      "target": "master_orchestrator",
+      "label": "Chat Interface"
+    },
+    {
+      "source": "master_orchestrator",
+      "target": "news_sentinel",
+      "label": "Request Market Context"
+    },
+    {
+      "source": "master_orchestrator",
+      "target": "actuary_agent",
+      "label": "Request Calculations"
+    },
+    {
+      "source": "input_node",
+      "target": "financial_audit_manager",
+      "label": "Analyze Button"
+    },
+    {
+      "source": "master_orchestrator",
+      "target": "output_node",
+      "label": "Synthesized Answer"
+    },
+    {
+      "source": "financial_audit_manager",
+      "target": "output_node",
+      "label": "CSV Analysis Report"
+    }
+  ],
+  "agent_hierarchy": {
+    "master_orchestrator_agent": {
+      "agent_id": "6985916de5d25ce3f598cb4b",
+      "type": "manager",
+      "manages": [
+        {
+          "agent_id": "6985913de17e33c11eed1a61",
+          "name": "News Sentinel Agent",
+          "purpose": "Market context and news intelligence"
+        },
+        {
+          "agent_id": "69859153e17e33c11eed1a66",
+          "name": "Actuary Agent",
+          "purpose": "Financial mathematics and predictions"
+        }
+      ]
+    },
+    "financial_audit_manager": {
+      "agent_id": "69858cabe17e33c11eed1a1d",
+      "type": "manager",
+      "manages": [
+        {
+          "agent_id": "69858c6fab4bf65a66ad081d",
+          "name": "Data Surgeon Agent"
+        },
+        {
+          "agent_id": "69858c80e17e33c11eed1a18",
+          "name": "Taxonomist Agent"
+        },
+        {
+          "agent_id": "69858c95ab4bf65a66ad0820",
+          "name": "Pattern Auditor Agent"
+        }
+      ]
+    }
+  },
+  "interface_mapping": {
+    "chat_interface": {
+      "agent": "master_orchestrator_agent",
+      "agent_id": "6985916de5d25ce3f598cb4b",
+      "description": "Main conversational interface - handles all user queries"
+    },
+    "analyze_button": {
+      "agent": "financial_audit_manager",
+      "agent_id": "69858cabe17e33c11eed1a1d",
+      "description": "Triggered when user uploads CSV and clicks Analyze"
+    }
+  },
+  "created_at": "2026-02-06T00:00:00Z"
+}

@@ -1,0 +1,119 @@
+{
+  "agent_name": "Actuary Agent",
+  "agent_id": "69859153e17e33c11eed1a66",
+  "agent_purpose": "Perform precise mathematical calculations, trend analysis, and affordability assessments",
+  "description": "Test response for Actuary Agent - Successfully performs step-by-step calculations",
+  "response_schema": {
+    "status": "string",
+    "result": {
+      "calculation_type": "string",
+      "input_data": {
+        "description": "string"
+      },
+      "calculations": [
+        {
+          "step": "string",
+          "formula": "string",
+          "result": "string"
+        }
+      ],
+      "final_result": {
+        "value": "string",
+        "unit": "string",
+        "interpretation": "string"
+      },
+      "projections": {
+        "next_month": "string",
+        "next_quarter": "string",
+        "confidence_interval": "string"
+      }
+    },
+    "metadata": {
+      "agent_name": "string",
+      "timestamp": "string"
+    }
+  },
+  "example_response": {
+    "status": "success",
+    "result": {
+      "calculation_type": "trend_analysis",
+      "input_data": {
+        "description": "monthly expenses data for the past year"
+      },
+      "calculations": [
+        {
+          "step": "Calculate total expenses for each month",
+          "formula": "sum(expenses for each month)",
+          "result": "e.g., $1,200 for January"
+        },
+        {
+          "step": "Determine average monthly expenses",
+          "formula": "total annual expenses / 12",
+          "result": "$1,150"
+        },
+        {
+          "step": "Identify trend by comparing monthly expenses to average",
+          "formula": "monthly expenses - average expenses",
+          "result": "e.g., January: $50 over average"
+        }
+      ],
+      "final_result": {
+        "value": "positive growth trend of $50 per month",
+        "unit": "currency",
+        "interpretation": "On average, your expenses are increasing by $50 each month."
+      },
+      "projections": {
+        "next_month": "$1,250",
+        "next_quarter": "$3,750",
+        "confidence_interval": "$1,200 - $1,300"
+      }
+    },
+    "metadata": {
+      "agent_name": "Actuary Agent",
+      "timestamp": "2023-10-05T12:00:00Z"
+    }
+  },
+  "is_actual_tested": true,
+  "test_timestamp": "2026-02-06T07:03:32.702162",
+  "test_message_used": "Hello, provide a sample response",
+  "actual_test_response": {
+    "status": "success",
+    "result": {
+      "calculation_type": "trend_analysis",
+      "input_data": {
+        "description": "monthly expenses data for the past year"
+      },
+      "calculations": [
+        {
+          "step": "Calculate total expenses for each month",
+          "formula": "sum(expenses for each month)",
+          "result": "e.g., $1,200 for January"
+        },
+        {
+          "step": "Determine average monthly expenses",
+          "formula": "total annual expenses / 12",
+          "result": "$1,150"
+        },
+        {
+          "step": "Identify trend by comparing monthly expenses to average",
+          "formula": "monthly expenses - average expenses",
+          "result": "e.g., January: $50 over average"
+        }
+      ],
+      "final_result": {
+        "value": "positive growth trend of $50 per month",
+        "unit": "currency",
+        "interpretation": "On average, your expenses are increasing by $50 each month."
+      },
+      "projections": {
+        "next_month": "$1,250",
+        "next_quarter": "$3,750",
+        "confidence_interval": "$1,200 - $1,300"
+      }
+    },
+    "metadata": {
+      "agent_name": "Actuary Agent",
+      "timestamp": "2023-10-05T12:00:00Z"
+    }
+  }
+}

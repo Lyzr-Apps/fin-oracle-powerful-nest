@@ -37,7 +37,34 @@
       "agent_id": "69858cc5a791e6e318b8def0",
       "name": "Query Expert Agent",
       "type": "independent",
-      "status": "created"
+      "status": "deprecated",
+      "note": "Replaced by Master Orchestrator Agent"
+    },
+    "news_sentinel_agent": {
+      "agent_id": "6985913de17e33c11eed1a61",
+      "name": "News Sentinel Agent",
+      "type": "independent",
+      "status": "created",
+      "tools": ["tavily-search"],
+      "purpose": "Fetch real-time market trends and news to explain spending patterns"
+    },
+    "actuary_agent": {
+      "agent_id": "69859153e17e33c11eed1a66",
+      "name": "Actuary Agent",
+      "type": "independent",
+      "status": "created",
+      "purpose": "Perform financial calculations, trend analysis, and affordability assessments"
+    },
+    "master_orchestrator_agent": {
+      "agent_id": "6985916de5d25ce3f598cb4b",
+      "name": "Master Orchestrator Agent",
+      "type": "manager",
+      "status": "created",
+      "managed_agents": [
+        "6985913de17e33c11eed1a61",
+        "69859153e17e33c11eed1a66"
+      ],
+      "purpose": "Orchestrate financial analysis by delegating to News Sentinel and Actuary"
     }
   },
   "response_schemas": {
@@ -45,7 +72,10 @@
     "data_surgeon_agent": "/app/nextjs-project/response_schemas/data_surgeon_agent_response.json",
     "taxonomist_agent": "/app/nextjs-project/response_schemas/taxonomist_agent_response.json",
     "pattern_auditor_agent": "/app/nextjs-project/response_schemas/pattern_auditor_agent_response.json",
-    "query_expert_agent": "/app/nextjs-project/response_schemas/query_expert_agent_response.json"
+    "query_expert_agent": "/app/nextjs-project/response_schemas/query_expert_agent_response.json",
+    "news_sentinel_agent": "/app/nextjs-project/response_schemas/news_sentinel_agent_response.json",
+    "actuary_agent": "/app/nextjs-project/response_schemas/actuary_agent_response.json",
+    "master_orchestrator_agent": "/app/nextjs-project/response_schemas/master_orchestrator_agent_response.json"
   },
   "created_at": "2026-02-06T00:00:00Z",
   "last_updated": "2026-02-06T00:00:00Z"

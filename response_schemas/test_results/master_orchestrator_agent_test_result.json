@@ -1,0 +1,40 @@
+{
+  "agent_name": "Master Orchestrator Agent",
+  "agent_id": "6985916de5d25ce3f598cb4b",
+  "test_message": "Why is my travel spend so high this month? I spent Rs 4,000 on petrol. My SMS logs show 3 extra trips to Vidyalankar Institute on weekends. Can you analyze this and check if there are any fuel price changes?",
+  "expected_purpose": "Orchestrate comprehensive analysis by delegating to specialized agents",
+  "timestamp": "2026-02-06T07:02:52.613279",
+  "is_valid_json": true,
+  "validation_errors": [],
+  "actual_response": {
+    "status": "success",
+    "result": {
+      "query_analysis": {
+        "user_question": "Why is my travel spend so high this month? I spent Rs 4,000 on petrol. My SMS logs show 3 extra trips to Vidyalankar Institute on weekends.",
+        "query_type": "spending_analysis",
+        "agents_consulted": [
+          "Actuary",
+          "News Sentinel"
+        ]
+      },
+      "insights": {
+        "market_context": "Unfortunately, there were no significant recent news events or price changes in petrol that could have amplified your travel expenses this month. The analysis confidence in observed data regarding market conditions is low due to a lack of any notable news.",
+        "calculations": "Your recent travel expenditure on petrol includes 3 extra trips to Vidyalankar Institute, contributing to increased costs. The exact deviation in petrol expenses compared to your typical monthly spend can be attributed directly to these additional trips.",
+        "data_analysis": "The spending on petrol is directly related to the increased frequency of trips over weekends. Historical spending comparison is necessary for further detailed insights."
+      },
+      "synthesis": {
+        "explanation": "The increased petrol expenses this month are majorly due to your additional trips to Vidyalankar Institute on weekends. There have been no significant increases in petrol prices recently to attribute the change to a market condition.",
+        "recommendations": [
+          "Consider aggregating trips to avoid unnecessary travel on weekends.",
+          "Explore if carpooling or usage of public transport could offer a cost-effective alternative for regular journeys."
+        ],
+        "confidence": "medium"
+      }
+    },
+    "metadata": {
+      "agent_name": "Master Orchestrator Agent",
+      "timestamp": "2023-10-10T12:00:00Z"
+    }
+  },
+  "raw_response": "{\n  \"status\": \"success\",\n  \"result\": {\n    \"query_analysis\": {\n      \"user_question\": \"Why is my travel spend so high this month? I spent Rs 4,000 on petrol. My SMS logs show 3 extra trips to Vidyalankar Institute on weekends.\",\n      \"query_type\": \"spending_analysis\",\n      \"agents_consulted\": [\n        \"Actuary\",\n        \"News Sentinel\"\n      ]\n    },\n    \"insights\": {\n      \"market_context\": \"Unfortunately, there were no significant recent news events or price changes in petrol that could have amplified your travel expenses this month. The analysis confidence in observed data regarding market conditions is low due to a lack of any notable news.\",\n      \"calculations\": \"Your recent travel expenditure on petrol includes 3 extra trips to Vidyalankar Institute, contributing to increased costs. The exact deviation in petrol expenses compared to your typical monthly spend can be attributed directly to these additional trips.\",\n      \"data_analysis\": \"The spending on petrol is directly related to the increased frequency of trips over weekends. Historical spending comparison is necessary for further detailed insights.\"\n    },\n    \"synthesis\": {\n      \"explanation\": \"The increased petrol expenses this month are majorly due to your additional trips to Vidyalankar Institute on weekends. There have been no significant increases in petrol prices recently to attribute the change to a market condition.\",\n      \"recommendations\": [\n        \"Consider aggregating trips to avoid unnecessary travel on weekends.\",\n        \"Explore if carpooling or usage of public transport could offer a cost-effective alternative for regular journeys.\"\n      ],\n      \"confidence\": \"medium\"\n    }\n  },\n  \"metadata\": {\n    \"agent_name\": \"Master Orchestrator Agent\",\n    \"timestamp\": \"2023-10-10T12:00:00Z\"\n  }\n}"
+}

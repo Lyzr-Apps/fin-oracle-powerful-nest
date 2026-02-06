@@ -1,0 +1,50 @@
+{
+  "agent_name": "Actuary Agent",
+  "agent_id": "69859153e17e33c11eed1a66",
+  "test_message": "Based on my spending data: Jan Rs 45,000, Feb Rs 48,000, Mar Rs 52,000. My monthly income is Rs 80,000. Can I afford to buy a phone for Rs 15,000? Show me the exact calculations and projections for the next 3 months.",
+  "expected_purpose": "Perform precise mathematical calculations, trend analysis, and affordability assessments",
+  "timestamp": "2026-02-06T07:02:19.124375",
+  "is_valid_json": true,
+  "validation_errors": [],
+  "actual_response": {
+    "status": "success",
+    "result": {
+      "calculation_type": "affordability",
+      "input_data": {
+        "description": "Spending data for Jan, Feb, and Mar; monthly income; cost of phone"
+      },
+      "calculations": [
+        {
+          "step": "Calculate average monthly spending",
+          "formula": "(Jan spending + Feb spending + Mar spending) / 3",
+          "result": "(45000 + 48000 + 52000) / 3 = 48333.33"
+        },
+        {
+          "step": "Calculate average monthly savings",
+          "formula": "monthly income - average monthly spending",
+          "result": "80000 - 48333.33 = 31666.67"
+        },
+        {
+          "step": "Determine affordability of the phone",
+          "formula": "average monthly savings >= phone cost",
+          "result": "31666.67 >= 15000"
+        }
+      ],
+      "final_result": {
+        "value": "True",
+        "unit": "boolean",
+        "interpretation": "You can afford to buy the phone as your average monthly savings exceed the phone's cost."
+      },
+      "projections": {
+        "next_month": "48333.33",
+        "next_quarter": "144999.99",
+        "confidence_interval": "48000 to 52000"
+      }
+    },
+    "metadata": {
+      "agent_name": "Actuary Agent",
+      "timestamp": "2023-10-04T12:00:00Z"
+    }
+  },
+  "raw_response": "{\n  \"status\": \"success\",\n  \"result\": {\n    \"calculation_type\": \"affordability\",\n    \"input_data\": {\n      \"description\": \"Spending data for Jan, Feb, and Mar; monthly income; cost of phone\"\n    },\n    \"calculations\": [\n      {\n        \"step\": \"Calculate average monthly spending\",\n        \"formula\": \"(Jan spending + Feb spending + Mar spending) / 3\",\n        \"result\": \"(45000 + 48000 + 52000) / 3 = 48333.33\"\n      },\n      {\n        \"step\": \"Calculate average monthly savings\",\n        \"formula\": \"monthly income - average monthly spending\",\n        \"result\": \"80000 - 48333.33 = 31666.67\"\n      },\n      {\n        \"step\": \"Determine affordability of the phone\",\n        \"formula\": \"average monthly savings >= phone cost\",\n        \"result\": \"31666.67 >= 15000\"\n      }\n    ],\n    \"final_result\": {\n      \"value\": \"True\",\n      \"unit\": \"boolean\",\n      \"interpretation\": \"You can afford to buy the phone as your average monthly savings exceed the phone's cost.\"\n    },\n    \"projections\": {\n      \"next_month\": \"48333.33\",\n      \"next_quarter\": \"144999.99\",\n      \"confidence_interval\": \"48000 to 52000\"\n    }\n  },\n  \"metadata\": {\n    \"agent_name\": \"Actuary Agent\",\n    \"timestamp\": \"2023-10-04T12:00:00Z\"\n  }\n}"
+}
